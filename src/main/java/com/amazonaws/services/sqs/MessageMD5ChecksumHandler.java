@@ -45,7 +45,8 @@ import com.amazonaws.util.TimingInfo;
 public class MessageMD5ChecksumHandler extends AbstractRequestHandler {
 	
 	private static final Log log = LogFactory.getLog(MessageMD5ChecksumHandler.class);
-	
+
+    /*
     @Override
     public void afterResponse(Request<?> request, Object response, TimingInfo timingInfo) {
     	if (null != request && null != response) {
@@ -101,7 +102,7 @@ public class MessageMD5ChecksumHandler extends AbstractRequestHandler {
         		}
         	}
     	}
-    }
+    }*/
     
     private boolean checkMessageMd5(String messageBody, String md5) {
     	if (log.isDebugEnabled()) {

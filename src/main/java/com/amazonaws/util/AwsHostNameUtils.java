@@ -17,6 +17,11 @@ package com.amazonaws.util;
 import java.net.URI;
 
 public class AwsHostNameUtils {
+    private static final String loInterface = "127.0.0.1";
+    private static final String localHost = "localhost";
+    private static final String localHost0 = "0.0.0.0";
+
+
     public static String parseRegionName(URI endpoint) {
         String host = endpoint.getHost();
 
@@ -47,6 +52,10 @@ public class AwsHostNameUtils {
 
     public static String parseServiceName(URI endpoint) {
         String host = endpoint.getHost();
+
+        if(host.equals(localHost) || host.equals(loInterface) || host.equals(localHost0)){
+            return "sqs";
+        }
 
         // If we don't recognize the domain, throw an exception.
         if (!host.endsWith(".amazonaws.com")) {
